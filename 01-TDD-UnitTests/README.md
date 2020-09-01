@@ -1,3 +1,22 @@
+# Cosa ho imparato
+ 
+ - Fase 1:
+   - ho scritto il readme, e il metodo statico da testare
+   - ho scritto un test che fallisce (perchè il metodo throw new NotImpementedException)
+   - in TDD prima si scrive l'interfaccia (la firma della funzione) e non si scrive implementazione (buona pratica throw NotImplementedException)
+   - si scrive il test e deve fallire, poi si implementa il codice
+   - il test tramite l'attributo [TestCase] "prevede" che
+     - 1+1 dovrà fare 2
+     - 1-1 dovrà fare 0
+​     - 2 per 2 4
+     - 10 / 2 farà 5
+​   - TestCase(args...., ExpectedResult=) usate ExpectedResult deve tornare e non essere void
+   - come primo esempio ho scelto una funzione statica perchè essendo statica dovrebbe essere pura (senza dipendenze, senza stato - le classi possono avere uno stato)
+   - le funzioni pure sono per definizione testabili. A daterminati input avrò sempre lo stesso risultato.
+     - Lo stesso metodo inserito in una classe potrebbe avere dei valori di istanza che ne mutano il risultano
+
+
+# How to
 
 - dotnet new nunit -n TddUnitTests
 ```cmd

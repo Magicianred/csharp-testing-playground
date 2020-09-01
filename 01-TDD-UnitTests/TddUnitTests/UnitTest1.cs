@@ -30,7 +30,14 @@ namespace TddUnitTests
         }
         public static int Do(int num1, int num2, TypeOperation typeOperation)
         {
-            throw new NotImplementedException();
+            switch(typeOperation){
+                case TypeOperation.Add: return num1 + num2;
+                case TypeOperation.Subtract: return num1 - num2;
+                case TypeOperation.Multiply: return num1 * num2;
+                case TypeOperation.Divide: return num1 / num2;
+            }
+
+            throw new ArgumentException();
         }
     }
 }
