@@ -1,3 +1,14 @@
+# Cosa imparo con questa ricetta
+
+ - creare un progetto di test
+ - nello specifico usando il framework/library nunit
+ - nel progetto c'è una classe "Test" d'esempio con metodo [Setup] opzionale e un [Test]
+ - nel test di esempio viene usato lo static helper di NUnit 
+   - Assert.Pass()
+   - Assert.Fail() è il suo contrario
+ - i test possono essere watchati (la cli osserva i files e ri lancia quando un test viene toccato)
+ - il progetto contiene delle librerie (conviene restare updated)
+
 # How to
 
 
