@@ -10,7 +10,7 @@
      - 1-1 dovrà fare 0
 ​     - 2 per 2 4
      - 10 / 2 farà 5
-​   - TestCase(args...., ExpectedResult=) usate ExpectedResult deve tornare e non essere void
+​   - TestCase(args...., ExpectedResult=) usando ExpectedResult il metodo/funzione deve tornare e non essere void
    - come primo esempio ho scelto una funzione statica perchè essendo statica dovrebbe essere pura (senza dipendenze, senza stato - le classi possono avere uno stato)
    - le funzioni pure sono per definizione testabili. A daterminati input avrò sempre lo stesso risultato.
      - Lo stesso metodo inserito in una classe potrebbe avere dei valori di istanza che ne mutano il risultano
@@ -121,3 +121,43 @@ Total tests: 4
 C:\Program Files\dotnet\sdk\3.1.401\Microsoft.TestPlatform.targets(32,5): error MSB4181: The "Microsoft.TestPlatform.Build.Tasks.VSTestTask" task returned false but did not log an error. [C:\Github\csharp-testing-playground\01-TDD-UnitTests\TddUnitTests\TddUnitTests.csproj]
 PS C:\Github\csharp-testing-playground\01-TDD-UnitTests\TddUnitTests>
 ```
+
+## Test Exceptions
+
+```csharp
+        [TestCase(MyCalc.TypeOperation.Divide, 10, 0)]
+        public void MyCalcDoExceptionsTest(MyCalc.TypeOperation typeOperation, int arg1, int arg2)
+        {
+            // arrange
+            // act
+            // assert
+            Assert.Throws<DivideByZeroException>(() => MyCalc.Do(arg1, arg2, typeOperation));
+        }
+
+        [TestCase(MyCalc.TypeOperation.Divide, 10, 0, typeof(DivideByZeroException))]
+        public void MyCalcDoExceptionsTest(MyCalc.TypeOperation typeOperation, int arg1, int arg2, Type exceptionType)
+        {
+            // arrange
+            // act
+            // assert
+            Assert.Throws(exceptionType, () => MyCalc.Do(arg1, arg2, typeOperation));
+        }
+```
+
+ - il primo esempio usa Assert.Throws<T>(delegateCode) dove T (generics) sarà l'ExceptionType che ci si aspetta
+ - il secondo esempio usa Assert.Throws(Type, delegateCode) dove Type sarà il typeof(ExceptionType)
+ - il secondo esempio è dinamico e posso passare il Type via TestCase[params]
+
+
+## Unit tests - Private methods
+
+```csharp 
+private static int MyPrivateMethod(int result)
+{
+    return result;
+}
+```
+
+ - il metodo privato di una classe non è testabile e non si testa.
+ - non si usa la reflection per testare un metodo privato
+ - non si aumenta la superficie esposta da un software solamente per scopi di test
