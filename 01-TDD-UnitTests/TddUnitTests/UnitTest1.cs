@@ -133,6 +133,12 @@ namespace TddUnitTests
             Assert.True(new SecondUselessClassExtendedForTest().GodMethodLegacySoftwareIWantToTest() ==  "Mocked content");
         }
 
+        [Test]
+        public void VoidMethodWriteConsoleTest()
+        {
+            Assert.DoesNotThrow(() => new SecondUselessClass().VoidMethodWriteConsole());
+        }
+
         class SecondUselessClassExtendedForTest : SecondUselessClass 
         {
             public int ProtectedMethodReturnOneWrap()
