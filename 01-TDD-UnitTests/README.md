@@ -1,6 +1,6 @@
 # Cosa ho imparato
  
- - Fase 1:
+ - Unit tests + TDD:
    - ho scritto il readme, e il metodo statico da testare
    - ho scritto un test che fallisce (perchè il metodo throw new NotImpementedException)
    - in TDD prima si scrive l'interfaccia (la firma della funzione) e non si scrive implementazione (buona pratica throw NotImplementedException)
@@ -10,11 +10,18 @@
      - 1-1 dovrà fare 0
 ​     - 2 per 2 4
      - 10 / 2 farà 5
+ - NUnit TestCase/Test Attributes
 ​   - TestCase(args...., ExpectedResult=) usando ExpectedResult il metodo/funzione deve tornare e non essere void
+ - Concetto di funzione pura
    - come primo esempio ho scelto una funzione statica perchè essendo statica dovrebbe essere pura (senza dipendenze, senza stato - le classi possono avere uno stato)
    - le funzioni pure sono per definizione testabili. A daterminati input avrò sempre lo stesso risultato.
      - Lo stesso metodo inserito in una classe potrebbe avere dei valori di istanza che ne mutano il risultano
-
+ - Testare le eccezioni
+ - Visiblità e testing
+   - private: non si testa!
+   - protected: si può testare estendendo nel progetto di tests
+     - può essere accettabile. non sono un fan
+     - quick & dirty solution per moccare una parte di codice altrimenti intestabile (sto rifattorizzando legacy code)
 
 # How to
 
