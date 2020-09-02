@@ -22,6 +22,19 @@
    - protected: si può testare estendendo nel progetto di tests
      - può essere accettabile. non sono un fan
      - quick & dirty solution per moccare una parte di codice altrimenti intestabile (sto rifattorizzando legacy code)
+ - Testare void
+
+# TODO
+
+ - Internal 
+ - Testare async
+ - Testare exceptions async
+ - NUnit Api TODO 
+   - qualche esempio sulla api di asserzioni in NUnit
+   - attributi/lifecycle hooks
+   - TestData?
+ - XUnit ... altri esempi
+ - FluentAssertion
 
 # How to
 
